@@ -1,7 +1,7 @@
 import json
 import requests
 
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 
 USER_AGENT = 'Prove Python API Wrapper %s' % __version__
 
@@ -30,8 +30,8 @@ class Prove:
         self.options = kwargs
 
         self._session = requests.session()
-        self._session.headers.update({ 
-            'Accept': 'application/json', 
+        self._session.headers.update({
+            'Accept': 'application/json',
             'User-Agent': USER_AGENT,
         })
 
