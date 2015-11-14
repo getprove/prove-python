@@ -44,7 +44,7 @@ class Prove:
 
 
     def _request(self, method, url, data=None):
-        result = self._session.request(method, url, data)
+        result = self._session.request(method, url, data=data)
         if result.status_code >= 400:
             raise ProveRestException(result.status_code, result.text, result.url)
         return result
@@ -56,7 +56,7 @@ class Prove:
         return self._request('POST', self.protocol + self.host + '/api/v1/verify', data).json()
 
     def pin(self, id, pin):
-        return self._request('POST', self.protocol + self.host + '/api/v1/verify/' + id + '/pin', { pin: pin }).json()
+        return self._request('POST', self.protocol + self.host + '/api/v1/verify/' + id + '/pin', {'pin': pin}).json()
 
     def retrieve(self, id):
         return self._request('GET', self.protocol + self.host + '/api/v1/verify/' + id).json()
